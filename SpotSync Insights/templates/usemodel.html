@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model creater</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+</head>
+<body>
+    <a href="/" class="return_index"> HOME</a>
+
+    {% if songdf is none %}
+        <form action="/temp" method="post" class="dest_form">
+        <label for="gen">Look up genre: </label>
+        <input type="text" id="gen" name="genre_form" list="searchSuggestions" autocomplete="on" class="search-bar">
+        <datalist id="searchSuggestions">
+
+
+         
+
+            {% for suggestion in search_suggestions %}
+
+                <option value="{{ suggestion }}">
+                    
+            {% endfor %}
+        </datalist>
+        <button type="submit">Search</button>
+      
+        </form>
+
+        {% if warning == 1 %}
+        <p class="warning"> Search for a valid genre </p>
+        {%endif%}
+
+    {%else%}
+    <h1> Underrated songs </h1>
+<br>
+    <div class="container">
+
+    <table >
+        <tr>
+            {% for x in cols %}
+            <td>{{ x }}</td>
+            {% endfor %}
+        </tr>
+        
+        {% for i in range(100) %}
+
+        <tr>
+            {% for x in cols %}
+
+            {% if x == 'uri'%}
+                            
+                            {% if i % 2 == 0 %}
+
+                            <td class="oddrow"><a class ="link" href="{{ songdf.iloc[i][x] }}">{{ songdf.iloc[i][x] }} </a></td>
+                            {%else%}
+                            <td><a class="link" href="{{ songdf.iloc[i][x] }}">{{ songdf.iloc[i][x] }} </a></td>
+
+             {%endif%}
+            {%else%}
+                 {% if i % 2 == 0 %}
+                     <td class="oddrow">{{ songdf.iloc[i][x] }}</td>
+                 {%else%}    
+                     <td>{{ songdf.iloc[i][x] }}</td>
+                 {% endif %}
+            {%endif%}
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+    
+
+
+    {% endif %}
+
+<script src="{{ url_for('static', filename='css/dot.js') }}">
+</script>
+</body>
+</html>

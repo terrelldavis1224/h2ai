@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+</head>
+<body>
+    <a href="/" class="return_index"> HOME</a>
+
+
+ <h1>Songs like: {{song['track_name']}}</h1>
+
+    {%for index, row in closest_songs_df.iterrows()%}
+
+<div class="likesongsdiv">  
+      <a class="link" href="{{ row['uri'] }}"> {{row['track_name']}} :  </a>
+      {{row['euclidean_dist']}}
+</div>
+<br>
+    {% endfor %}
+
+    <br>
+    <br>
+    <br>
+    <br>
+ <script src="{{ url_for('static', filename='css/dot.js') }}">
+ </script>
+ <hr>
+
+ <p style="text-align: center;">These are the top 10 songs for "{{song['track_name']}}" ranked based on Euclidean distance.
+     The numbers to the right represent the Euclidean distance using these metrics created by spotify: 'danceability', 'energy', 'key', 'loudness', 'mode', 'speechiness',
+     'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo','time_signature', 'duration_sec' </p>
+     <p style="text-align: center;"> Cilck on the track name to go to the song </p>
+</body>
+</html>

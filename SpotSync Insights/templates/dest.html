@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  
+    <script > 
+
+    </script>
+
+</head>
+<body>
+
+
+  
+    <a href="/" class="return_index"> HOME</a>
+
+    {% if image_data_list %}
+        <h1>{{ genre }} </h1>
+        {% for image_data in image_data_list %}
+            <div>
+                <img src="data:image/png;base64,{{ image_data }}" alt="Plot Image" class="c">
+            </div>
+            <p>{{ description[loop.index0] }}</p>
+            <br></br>
+        {% endfor %}
+    {% else %}
+        <form action="/dest" method="post" class="dest_form">
+            <label for="gen">Look up genre: </label>
+            <input type="text" id="gen" name="q" list="searchSuggestions" autocomplete="on" class="search-bar">
+            
+            <datalist id="searchSuggestions">
+                {% for suggestion in search_suggestions %}
+
+                    <option value="{{ suggestion }}">
+
+                {% endfor %}
+            </datalist>
+
+            <button type="submit">Search</button>
+        </form>
+    {% endif %}
+
+
+    <script src="{{ url_for('static', filename='css/dot.js') }}"></script>
+
+</body>
+</html>

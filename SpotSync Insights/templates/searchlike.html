@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <a href="/" class="return_index"> HOME</a>
+
+    <form action="/searchlike" method="post" class="dest_form">
+        <label for="gen">Look up song: </label>
+        <input type="text" id="gen" name="song_form" list="searchSuggestions" autocomplete="on" class="search-bar">
+        
+        <datalist id="searchSuggestions">
+            {% for suggestion in search_suggestions %}
+                <option value="{{ suggestion }}">
+            {% endfor %}
+        </datalist>
+
+        <button type="submit">Search</button>
+    </form>
+
+    {% if warning == 1 %}
+    <p class="warning">Search for a valid song</p>
+    {% endif %}
+
+    {% if song_list_with_name is not none %}
+    <form action="/likesongs" method="post">
+        {% for index, row in song_list_with_name.iterrows() %}
+            <button type="submit" name="songid" value="{{row['track_id']}}">{{row['track_name']}} {{row['name']}}</button>
+        {% endfor %}
+    </form>
+    {% endif %}
+</body>
+</html>

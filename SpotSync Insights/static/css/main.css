@@ -1,0 +1,169 @@
+
+
+h1{
+    text-align: center;
+    color: #70e000;
+    margin: 0;
+}
+
+
+.warning{
+
+  text-align: center;
+  color: red;
+  margin: 0;
+}
+.fontpage_anchor
+{
+text-decoration: none; 
+padding: 10px 20px; 
+background-color: #70e000;
+color:black; 
+border: 0in;
+border-radius: 5px;
+cursor: pointer;
+text-align: center;
+
+}
+
+.center {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+  }
+
+
+  .c {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .dest_form {
+
+    text-align: center;
+  }
+
+  .search-bar {
+    background-color: #70e000 ;
+    border-radius: 10px;
+    width: 200px;
+  }
+
+  .footer{
+    position: fixed;
+     bottom: 0;
+      left: 0; 
+      width: 100%; 
+      text-align: center;    
+  }
+
+
+
+ 
+
+  body {
+    background-color: #333; /* Dark mode background color */
+    color: white;
+    margin: 0;
+    padding: 0;
+  
+  }
+
+  .falling-dot {
+    width: 7px;
+    height: 7px;
+    background-color: rgb(0, 225, 120);
+    border-radius: 50%;
+    position: absolute;
+    animation: fall 5s linear infinite;
+    box-shadow: 0 0 20px rgba(0, 225, 120, 0.7);
+
+  }
+ 
+  
+    
+
+  .return_index {
+    width: 4vw;
+    height: 4vw;
+    border-radius: 25%;
+    background-color: rgb(0, 225, 120);
+    position: fixed;
+    bottom: 2vw; 
+    left: 2vw; 
+    text-decoration: none; 
+    color: white;
+    font-size: 1.3vw; 
+    line-height: 4vw; 
+    box-shadow: 0 0 20px rgba(0, 225, 120, 0.7);
+
+  }
+  
+  
+  .link {
+    text-decoration: none; 
+    color:white;
+
+  }
+
+  @keyframes fall {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+      
+    }
+    100% {
+      transform: translate(25vw, 25vh) scale(0);   
+      opacity: 0;
+     }
+  }
+
+ 
+
+  table {
+    background-color: rgb(118, 118, 118);
+     border-collapse: collapse;    
+     text-align: center;
+
+
+  }
+  .oddrow {
+
+    background-color: rgb(162, 162, 162);
+  }
+
+.likesongsdiv{
+  text-align: center;
+}
+ 
+  .container {
+    height: 300px; 
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto; 
+    border-style: solid inset;
+    border-width: 3px;
+    box-shadow: 0 0 11px 2px #70e000
+    
+  }
+  
+.header1{
+  height: 25px;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: #70e000;
+}
+
+.header2{
+  height: 50px;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: grey;
+}
+
+.hr {
+  position: fixed;
+  bottom: 15px;
+  width: 100%;
+}
